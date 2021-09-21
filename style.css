@@ -148,8 +148,43 @@ hr {
     border: 0;
     height: 1px;
     background: #A69F94;
+    margin-bottom: 10px;
 }
 
 #salesInfo {
     color: #403D39;
+}
+
+table {
+    text-align: center;
+    border-collapse: collapse;
+}
+
+td {
+    width: 35px;
+    text-align: right;
+    padding-top: 3px;
+    padding-bottom: 1px;
+    padding: 3px 5px 1px 3px;
+}
+
+tr:first-child {
+    border-bottom: 1px solid #A69F94;
+}
+
+td:first-child {
+    width: 60px;
+    font-weight: bold;
+    text-align: right;
+    border-right: 1px solid #A69F94;
+    padding-right: 5px;
+}
+
+td:last-child {
+    width: 50px;
+    border-left: 1px solid #A69F94;
+}
+
+tr:last-child {
+    border-top: 1px solid #A69F94;
 }

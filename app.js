@@ -10,8 +10,10 @@ function Location(city, minCustomersPerHour, maxCustomersPerHour, avgCookiesPerC
     this.totalCookiesSold = 0;
 
     // Immediately simulate cookies upon object creation.
-    //this.addHeaderToPage();
     this.simulateCookiesSold();
+
+    // Opted for table building to be completely handled by external control.
+    //this.render();
 }
 
 // Hours are shared between all locations.
@@ -53,7 +55,7 @@ function addHeaderToTable() {
 
     // Empty last column for row totals.
     let lastRowCell = document.createElement('th')
-    lastRowCell.innerText = 'Total'
+    lastRowCell.innerText = 'Totals'
     row.appendChild(lastRowCell);
 
     // Display row on page by adding it to the already existing table named 'results'.
@@ -108,6 +110,7 @@ function addHourlyTotals(locationObjects) {
 
         grandTotal = grandTotal + totalHourlySales // increment grand total by the current hour, for every hour
 
+        // Add total hourly data to row.
         let cell = document.createElement('td');
         cell.innerText = totalHourlySales;
         row.appendChild(cell);
