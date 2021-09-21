@@ -1,0 +1,155 @@
+/* 
+Color theme:
+#D9C077 (yellow)
+#D9D0C1 (light grey)
+#BF754B (brown)
+#A64C44 (red)
+#0D0D0D (dark brown)
+*/
+
+body {
+    background-color: #D9D0C1;
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background-color: #A64C44;
+    width: 100%;
+}
+
+header {
+    height: 150px;
+}
+
+#headerContainer {
+    width:fit-content;
+    margin: auto;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    width: 200px;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    font-size: 16pt;
+    color: #D9D0C1;
+    vertical-align: top;
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+a:hover {
+    color: #D9C077;
+}
+
+main {
+    width: 768px;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+
+
+#introArticle figure {
+    width: 300px;
+}
+
+main h1 {
+    color: #A64C44;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+main h3 {
+    padding-left: 20px;
+    padding-top:10px;
+    padding-bottom: 5px;
+    font-size: 14pt;
+}
+
+.locationDescription {
+    padding-left: 40px;
+}
+
+main p {
+    color: #403D39;
+    display: inline;
+}
+
+main figure {
+    display: inline;
+    width: min-content;
+    float: right;
+    padding-left: 20px;
+}
+
+main img {
+    width: 300px;
+    display: block;
+    padding-bottom: 20px;
+}
+
+figurecaption {
+    color: #403D39;
+    font-style: oblique;
+}
+
+footer p {
+    color: #BFB7AA;
+    width: 768px;
+    margin: auto;
+    text-align: center;
+}
+
+footer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+ul {
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    display: inline-block;
+}
+
+li {
+    list-style-type: none;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#salesInfo div {
+    display: inline-block;
+    margin: 15px;
+    margin-bottom: 0px;
+}
+
+#salesInfo h2 {
+    text-align: center;
+}
+
+#salesInfo h1 {
+    text-align: center;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #A69F94;
+}
+
+#salesInfo {
+    color: #403D39;
+}
