@@ -11,9 +11,6 @@ function Location(city, minCustomersPerHour, maxCustomersPerHour, avgCookiesPerC
 
     // Immediately simulate cookies upon object creation.
     this.simulateCookiesSold();
-
-    // Opted for table building to be completely handled by external control.
-    //this.render();
 }
 
 // Hours are shared between all locations.
@@ -37,6 +34,31 @@ Location.prototype.simulateCookiesSold = function() {
 
 }
 
+// Add this city's data to the table
+Location.prototype.render = function() {
+    // Create first row (currently empty upon creation).
+    let row = document.createElement('tr');
+
+    // Add city name to row.
+    let rowName = document.createElement('td');
+    rowName.innerText = this.city;
+    row.appendChild(rowName);
+
+    // Add city's hourly data to row.
+    for (i = 0; i < this.hoursAvailable.length; i++) {
+        let cell = document.createElement('td');
+        cell.innerText = Math.round(this.hourlySales[i]);
+        row.appendChild(cell);
+    }
+
+    // Add row total to row.
+    let rowTotal = document.createElement('td');
+    rowTotal.innerText = this.totalCookiesSold;
+    row.appendChild(rowTotal);
+
+    // Add row to page.
+    document.getElementById("results").appendChild(row)
+}
 
 // Add header row (including empty first and last cells to account for row totals and city names).
 function addHeaderToTable() {
@@ -61,32 +83,6 @@ function addHeaderToTable() {
     // Display row on page by adding it to the already existing table named 'results'.
     console.log(row);
     document.getElementById("results").appendChild(row);
-}
-
-// Add the passed in city's data to the table
-function addLocationDataToTable(location) {
-        // Create first row (currently empty upon creation).
-        let row = document.createElement('tr');
-
-        // Add city name to row.
-        let rowName = document.createElement('td');
-        rowName.innerText = location.city;
-        row.appendChild(rowName);
-
-        // Add city's hourly data to row.
-        for (i = 0; i < Location.prototype.hoursAvailable.length; i++) {
-            let cell = document.createElement('td');
-            cell.innerText = Math.round(location.hourlySales[i]);
-            row.appendChild(cell);
-        }
-
-        // Add row total to row.
-        let rowTotal = document.createElement('td');
-        rowTotal.innerText = location.totalCookiesSold;
-        row.appendChild(rowTotal);
-
-        // Add row to page.
-        document.getElementById("results").appendChild(row)
 }
 
 // Add last row for hourly totals to table.
@@ -141,7 +137,7 @@ addHeaderToTable();
 let grandTotal = 0;
 // Add a row for each city (including location specific totals).
 for (let i = 0; i < locationObjects.length; i++) {
-    addLocationDataToTable(locationObjects[i]);
+    locationObjects[i].render();
 }
 
 // Add last row for hourly totals.
