@@ -2,22 +2,22 @@
 
 // Constructor for location objects.
 function Location(city, minCustomersPerHour, maxCustomersPerHour, avgCookiesPerCustomer) {
-    this.city = city,
-    this.minCustomersPerHour = minCustomersPerHour,
-    this.maxCustomersPerHour = maxCustomersPerHour,
-    this.avgCookiesPerCustomer = avgCookiesPerCustomer,
+    this.city = city;
+    this.minCustomersPerHour = minCustomersPerHour;
+    this.maxCustomersPerHour = maxCustomersPerHour;
+    this.avgCookiesPerCustomer = avgCookiesPerCustomer;
     this.hourlySales = [];
     this.totalCookiesSold = 0;
 
     // Immediately simulate cookies upon object creation.
-    this.simulateCookiesSold();
+    this.simulateHourlySales();
 }
 
 // Hours are shared between all locations.
 Location.prototype.hoursAvailable = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 
 // Simulate location specific data. Function to generate this data is shared between all locations.
-Location.prototype.simulateCookiesSold = function() {
+Location.prototype.simulateHourlySales = function() {
 
     // Loop through each hour of the day, adding the sales data for each hour to unordered list.
     for (let i = 0; i < this.hoursAvailable.length; i++) {
@@ -120,16 +120,14 @@ function addHourlyTotals(locationObjects) {
     // Add last row to table.
     document.getElementById("results").appendChild(row);
 }
- 
 
+let seattle = new Location("Seattle", 23, 65, 6.3);
+let tokyo = new Location("Tokyo", 3, 24, 1.2);
+let dubai = new Location("Dubai", 11, 38, 3.7);
+let paris = new Location("Paris", 20, 38, 2.3);
+let lima = new Location("Lima", 2, 16, 4.6);
 
-seattle = new Location("Seattle", 23, 65, 6.3);
-tokyo = new Location("Tokyo", 3, 24, 1.2);
-dubai = new Location("Dubai", 11, 38, 3.7);
-paris = new Location("Paris", 20, 38, 2.3);
-lima = new Location("Lima", 2, 16, 4.6);
-
-locationObjects = [seattle, tokyo, dubai, paris, lima];
+let locationObjects = [seattle, tokyo, dubai, paris, lima];
 
 // Add header row to table.
 addHeaderToTable();
