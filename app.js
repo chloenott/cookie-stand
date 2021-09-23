@@ -1,4 +1,4 @@
-
+'use strict';
 
 // Constructor for location objects.
 function Location(city, minCustomersPerHour, maxCustomersPerHour, avgCookiesPerCustomer) {
@@ -45,7 +45,7 @@ Location.prototype.render = function() {
     row.appendChild(rowName);
 
     // Add city's hourly data to row.
-    for (i = 0; i < this.hoursAvailable.length; i++) {
+    for (let i = 0; i < this.hoursAvailable.length; i++) {
         let cell = document.createElement('td');
         cell.innerText = Math.round(this.hourlySales[i]);
         row.appendChild(cell);
@@ -69,7 +69,7 @@ function addHeaderToTable() {
     row.appendChild(document.createElement('th'));
 
     // Labeled header cells for each hour of the day.
-    for (i = 0; i < Location.prototype.hoursAvailable.length; i++) {
+    for (let i = 0; i < Location.prototype.hoursAvailable.length; i++) {
         let cell = document.createElement('th');
         cell.innerText = Location.prototype.hoursAvailable[i];
         row.appendChild(cell);
@@ -81,7 +81,6 @@ function addHeaderToTable() {
     row.appendChild(lastRowCell);
 
     // Display row on page by adding it to the already existing table named 'results'.
-    console.log(row);
     document.getElementById("results").appendChild(row);
 }
 
@@ -96,11 +95,11 @@ function addHourlyTotals(locationObjects) {
     row.appendChild(rowName);
 
     // For each hour (i)...
-    for (i = 0; i < Location.prototype.hoursAvailable.length; i++) {
+    for (let i = 0; i < Location.prototype.hoursAvailable.length; i++) {
         let totalHourlySales = 0; // This totalHourlySales value resets for each hour it gets calculated for.
 
         // For each city (j), at each hour (i)... increment the totalHourlySales by the hourly sales of each city, for each hour...
-        for (j = 0; j < locationObjects.length; j++) {
+        for (let j = 0; j < locationObjects.length; j++) {
             totalHourlySales = totalHourlySales + locationObjects[j].hourlySales[i];
         }
 
