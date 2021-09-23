@@ -15,6 +15,26 @@
 
         <main id="salesInfo">
             <h1>Salmon Cookies Sales Data</h1>
+
+            <form id="add-new-store">
+                <fieldset>
+                    <legend>Add New Store</legend>
+
+                    <label>Location</label>
+                    <input name="location" type="text" required><br>
+
+                    <label>Minimum Customers Per Hour</label>
+                    <input name="minCustomersPerHour" type="number" required><br>
+
+                    <label>Maximum Customers Per Hour</label>
+                    <input name="maxCustomersPerHour" type="number" required><br>
+
+
+                    <label>Average Cookies Per Customer</label>
+                    <input name="avgCookiesPerCustomer" type="number" required><br>
+                </fieldset>
+            </form>
+
             <table id="results">
                 <!-- JS places table here -->
             </table>
