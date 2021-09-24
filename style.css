@@ -174,7 +174,7 @@ hr {
 }
 
 table {
-    margin-top: 10px;
+    margin-top: 25px;
     text-align: center;
     border-collapse: collapse;
 }
@@ -204,4 +204,45 @@ td:last-child {
 
 tr:last-child {
     border-top: 1px solid #A69F94;
+}
+
+#add-new-store {
+    width: max-content;
+}
+
+ label {
+    display: inline-block;
+    text-align: right;
+    padding-right: 0.5em;
+    width: 11em;
+}
+
+form {
+    text-align: center;
+    margin: 30px auto 0px auto;
+}
+
+fieldset {
+    border: 1px solid #A69F94;
+}
+
+input {
+    display: inline-block;
+    width: 6em;
+}
+
+input[name="location"] {
+    width: 11em;
+    margin-right: 5em;
+}
+
+button {
+    display: block;
+    font-size: 10pt;
+    padding: 5px 10px;
+    margin: 10px auto;
+}
+
+#add-new-store div {
+    display: block;
 }
