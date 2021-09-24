@@ -101,6 +101,7 @@ function addHourlyTotals(locationObjects) {
     row.appendChild(rowName);
 
     // For each hour (i)...
+    let grandTotal = 0;
     for (let i = 0; i < Location.prototype.hoursAvailable.length; i++) {
         let totalHourlySales = 0; // This totalHourlySales value resets for each hour it gets calculated for.
 
@@ -155,7 +156,6 @@ new Location("Lima", 2, 16, 4.6);
 // Add header row to table.
 addHeaderToTable();
 
-let grandTotal = 0;
 // Add a row for each city (including location specific totals).
 for (let i = 0; i < Location.locationObjects.length; i++) {
     Location.locationObjects[i].render();
