@@ -11,7 +11,13 @@ function Location(city, minCustomersPerHour, maxCustomersPerHour, avgCookiesPerC
 
     // Immediately simulate cookies upon object creation.
     this.simulateHourlySales();
+
+    // Location object that gets created is stored for later use.
+    Location.locationObjects.push(this);
 }
+
+// Store location objects that get created here.
+Location.locationObjects = [];
 
 // Hours are shared between all locations.
 Location.prototype.hoursAvailable = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
@@ -125,9 +131,9 @@ function addNewStore(e) {
     e.preventDefault();
     let formTarget = e.target;
 
-    // Create new location object using form data.
-    // Note that simulation occurs upon object creation, so newLocation should already have results.
-    let newLocation = new Location(formTarget.location.value, formTarget.minCustomersPerHour.value, formTarget.maxCustomersPerHour.value, formTarget.avgCookiesPerCustomer.value);
+    // Create new location object using form data. New location object is last item in Location.locationObjects.
+    // Note that value in newLocation is the same as the last element in Location.locationObjects.
+    let newLocation = new Location(formTarget.location.value, Number(formTarget.minCustomersPerHour.value), Number(formTarget.maxCustomersPerHour.value), Number(formTarget.avgCookiesPerCustomer.value))
 
     // Will need to delete totals row if intent is to utilize existing addHourlyTotals function.
     document.getElementById('results').lastChild.remove();
@@ -135,32 +141,28 @@ function addNewStore(e) {
     // Add new location to data to table using render function within newLocation object.
     newLocation.render();
 
-    // Add newLocation to locationObjects since addHourlyTotals uses this array.
-    locationObjects.push(newLocation);
-
     // AddHourlyTotals function already exists; so to create new store just delete last row and call addHourlyTotals.
-    addHourlyTotals(locationObjects);
+    addHourlyTotals(Location.locationObjects);
 }
 
-let seattle = new Location("Seattle", 23, 65, 6.3);
-let tokyo = new Location("Tokyo", 3, 24, 1.2);
-let dubai = new Location("Dubai", 11, 38, 3.7);
-let paris = new Location("Paris", 20, 38, 2.3);
-let lima = new Location("Lima", 2, 16, 4.6);
-
-let locationObjects = [seattle, tokyo, dubai, paris, lima];
+// Create new location objects. Note that Location stores the newly created object in the array Location.locationObjects.
+new Location("Seattle", 23, 65, 6.3);
+new Location("Tokyo", 3, 24, 1.2);
+new Location("Dubai", 11, 38, 3.7);
+new Location("Paris", 20, 38, 2.3);
+new Location("Lima", 2, 16, 4.6);
 
 // Add header row to table.
 addHeaderToTable();
 
 let grandTotal = 0;
 // Add a row for each city (including location specific totals).
-for (let i = 0; i < locationObjects.length; i++) {
-    locationObjects[i].render();
+for (let i = 0; i < Location.locationObjects.length; i++) {
+    Location.locationObjects[i].render();
 }
 
 // Add last row for hourly totals.
-addHourlyTotals(locationObjects);
+addHourlyTotals(Location.locationObjects);
 
 // Call addNewStore function when user submits form to create a new store.
 document.getElementById('add-new-store').addEventListener('submit', addNewStore);
