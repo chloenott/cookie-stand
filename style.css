@@ -7,6 +7,10 @@ Color theme:
 #0D0D0D (dark brown)
 */
 
+/* https://fonts.google.com/specimen/Roboto */
+/* https://fonts.google.com/specimen/Yaldevi */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Yaldevi&display=swap');
+
 body {
     background-color: #D9D0C1;
     width: 100%;
@@ -15,6 +19,8 @@ body {
 * {
     margin: 0;
     padding: 0;
+
+    font-family: 'Yaldevi', sans-serif;
 }
 
 header, footer {
@@ -41,9 +47,14 @@ header {
     margin: auto;
 }
 
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 a {
     text-decoration: none;
     font-size: 16pt;
+    font-family: "Roboto", sans-serif;
     color: #D9D0C1;
     vertical-align: top;
     padding-top: 50px;
@@ -56,7 +67,7 @@ a:hover {
 }
 
 main {
-    width: 768px;
+    width: 900px;
     margin: auto;
     margin-top: 60px;
     margin-bottom: 50px;
@@ -174,9 +185,19 @@ hr {
 }
 
 table {
+    margin: auto;
     margin-top: 25px;
     text-align: center;
     border-collapse: collapse;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+tr:nth-child(even) {
+    background-color: #dedede;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
 }
 
 td, th {
